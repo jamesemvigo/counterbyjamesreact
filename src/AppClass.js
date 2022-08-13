@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
 
 export default class AppClass extends Component {
-    componentDidMount() {
-        this.searchInput.focus();
-      }
-
-   constructor(props){
+    constructor(props){
     super(props);
     this.state={
         count:0,
     }
    }
-   
+   componentDidMount() {
+    console.log("after rand method");
+    const inp=document.getElementById("input1");
+    inp.focus();
+  }
+
    
     increment=()=>{
         this.setState((previousState)=>({
@@ -27,9 +28,8 @@ export default class AppClass extends Component {
   render() {
     return (
       <div>
-        <label>Name box</label>
-        <input ref={inputEl => (this.searchInput = inputEl)} />
-         <p> The count is : {this.state.count}</p>
+        <div> <input type="text" id="input1"></input></div>
+      <p> The count is : {this.state.count}</p>
       <button onClick={this.decrement}>-</button>
       <button onClick={this.increment}>+</button>
       </div>
